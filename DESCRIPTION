@@ -1,12 +1,26 @@
 Package: moostr
-Title: What the Package Does (One Line, Title Case)
+Title: Moodle Syntax String for Multichoice and Numerical Question Types
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R:
+    c(person(given = "Iris",
+           family = "Jiang",
+           role = c("aut", "cre"),
+           email = "iris.jiang@mq.edu.au",
+           comment = c(ORCID = "0000-0003-3708-9574")),
+           person("Thomas", "Fung", role = "aut",
+           email = "thomas.fung.dr@gmail.com",
+           comment = c(ORCID = "0000-0002-8235-1845"))
+           )
+Description: This package generates a Moodle syntax string for a given list of
+    possible answers and their corresponding rewards. It allows the user to conveniently
+    allocate rewards for multiple correct and partially correct answers.The package
+    also randomly shuffles the answer list for multichoice questions.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Imports:
+    glue
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
