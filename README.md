@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 ## Installation
 
-You can install the development version of moostr like so:
+You can install the development version of moostr via:
 
 ``` r
 # install.packages("remotes")
