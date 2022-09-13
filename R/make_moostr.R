@@ -6,6 +6,9 @@
 #'   correct and partially correct answers.The package also randomly
 #'   shuffles the answer list for multichoice questions.
 #'
+#'   The returned Moodle syntax string can be directly used as the
+#'   solution to a verbatim item in a cloze exercise with exams package.
+#'
 #' @param type string; either "mchoice" or "num"
 #' @param ans a list of possible answers; for "mchoice" type, each
 #'   possible answer is a string; for "num" type, each possible answer is
