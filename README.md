@@ -26,6 +26,9 @@ conveniently allocate rewards for multiple correct and partially correct
 answers. `moostr` also randomly shuffles the answer list for multichoice
 questions.
 
+For `exams`, the returned Moodle syntax string can be directly used as
+the solution to a verbatim item in a cloze exercise.
+
 ## Example
 
 This is a basic example:

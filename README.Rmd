@@ -31,6 +31,8 @@ remotes::install_github("iris-yi-jiang/moostr")
 
 `moostr` generates a Moodle syntax string for a given list of possible answers and their corresponding rewards. It allows the user to conveniently allocate rewards for multiple correct and partially correct answers. `moostr` also randomly shuffles the answer list for multichoice questions.
 
+For `exams`, the returned Moodle syntax string can be directly used as the solution to a verbatim item in a cloze exercise. 
+
 ## Example
 
 This is a basic example:
