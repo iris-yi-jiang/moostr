@@ -92,7 +92,7 @@
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
 <p><code>moostr</code> generates a Moodle syntax string for a given list of possible answers and their corresponding rewards. It allows the user to conveniently allocate rewards for multiple correct and partially correct answers for multichoice and numerical questions. <code>moostr</code> also randomly shuffles the answer list for multichoice questions.</p>
-<p>For <code>moostr</code> to function properly, it is necessary to set the question type for both multichoice and numerical questions to vertatim type. The returned Moodle syntax string can then be directly used as the solution to a verbatim item in a Embedded Answers (Cloze) exercise with <code>exams</code>.</p>
+<p>For <code>moostr</code> to function properly, it is necessary to set the question type for both multichoice and numerical questions to vertatim type. The returned Moodle syntax string can then be directly used as the solution to a verbatim item in an Embedded Answers (Cloze) exercise with <code>exams</code> or Moodle.</p>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -102,7 +102,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/iris-yi-jiang/moostr" class="external-link">moostr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/make_moostr.html">make_moostr</a></span><span class="op">(</span>type<span class="op">=</span><span class="st">"mchoice"</span>, ans<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A two-sample t-test"</span>,</span>
 <span><span class="st">"A paired t-test"</span>, <span class="st">"A one-sample t-test"</span><span class="op">)</span>, reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] ":MULTICHOICE:%0%A one-sample t-test~%50%A two-sample t-test~%100%A paired t-test"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] ":MULTICHOICE:%100%A paired t-test~%50%A two-sample t-test~%0%A one-sample t-test"</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
