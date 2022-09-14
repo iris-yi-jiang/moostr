@@ -18,8 +18,8 @@
 #' @param ans a list of possible answers; for "mchoice" type, each
 #'   possible answer is a string; for "num" type, each possible answer is
 #'   of numeric type
-#' @param reward a list of corresponding rewards for the possible
-#'   answers expressed in percentages (0 and 100 inclusive)
+#' @param reward a list of corresponding rewards for each possible
+#'   answer expressed in percentages (0 and 100 inclusive)
 #' @param tol a tolerance level for "num" type; this argument is
 #'   ignored for "mchoice" type
 #' @return a Moodle syntax string
