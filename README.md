@@ -29,7 +29,8 @@ shuffles the answer list for multichoice questions.
 For `moostr` to function properly, it is necessary to set the question
 type for both multichoice and numerical questions to vertatim type. The
 returned Moodle syntax string can then be directly used as the solution
-to a verbatim item in a Embedded Answers (Cloze) exercise with `exams`.
+to a verbatim item in an Embedded Answers (Cloze) exercise with `exams`
+or Moodle.
 
 ## Example
 
@@ -39,5 +40,5 @@ This is a basic example:
 library(moostr)
 make_moostr(type="mchoice", ans=c("A two-sample t-test",
 "A paired t-test", "A one-sample t-test"), reward=c(50, 100, 0))
-#> [1] ":MULTICHOICE:%0%A one-sample t-test~%50%A two-sample t-test~%100%A paired t-test"
+#> [1] ":MULTICHOICE:%100%A paired t-test~%50%A two-sample t-test~%0%A one-sample t-test"
 ```
