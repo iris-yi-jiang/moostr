@@ -23,8 +23,10 @@ remotes::install_github("iris-yi-jiang/moostr")
 `moostr` generates a Moodle syntax string for a given list of possible
 answers and their corresponding rewards. It allows the user to
 conveniently allocate rewards for multiple correct and partially correct
-answers for multichoice and numerical questions. `moostr` also randomly
-shuffles the answer list for multichoice questions.
+answers. For multichoice questions, `moostr` also randomly shuffles the
+answer list. For numerical questions, `moostr` also allows the
+flexibility to specify different tolerance levels for each possible
+answer.
 
 For `moostr` to function properly, it is necessary to set the question
 type for both multichoice and numerical questions to vertatim type. The
@@ -44,7 +46,7 @@ make_moostr(type="mchoice",
                   "A paired t-test", 
                   "A one-sample t-test"), 
             reward=c(50, 100, 0))
-#> [1] ":MULTICHOICE:%0%A one-sample t-test~%100%A paired t-test~%50%A two-sample t-test"
+#> [1] ":MULTICHOICE:%0%A one-sample t-test~%50%A two-sample t-test~%100%A paired t-test"
 ```
 
 This is a basic example for numerical question type. Note that `moostr`
