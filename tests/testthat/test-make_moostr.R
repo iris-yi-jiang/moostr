@@ -24,7 +24,7 @@ test_that("test output of make_moostr", {
     expect_error(make_moostr(type="shortanswer",
                  ans=c(2, 3, 4.5),
                  reward=c(0, 100, 50)),
-                 "type can only be MULTICHOICE or NUMERICAL")
+                 "type can only be 'mchoice' or 'num'")
     set.seed(2022)
     expect_error(make_moostr(type="num",
                              ans=c(2, 3, 4.5),
