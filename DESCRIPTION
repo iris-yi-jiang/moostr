@@ -9,7 +9,7 @@ Authors@R:
            comment = c(ORCID = "0000-0003-3708-9574")),
            person("Thomas", "Fung", role = "aut",
            email = "thomas.fung.dr@gmail.com",
-           comment = c(ORCID = "0000-0002-8235-1845"))
+           comment = c(ORCID = "0000-0003-2601-0728"))
            )
 Description: This package generates a Moodle syntax string for a given list of
     possible answers and their corresponding rewards. It allows the user to conveniently
