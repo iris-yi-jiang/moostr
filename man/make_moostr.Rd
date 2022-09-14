@@ -26,9 +26,10 @@ a Moodle syntax string
 This package generates a Moodle syntax string for
 a given list of possible answers and their corresponding rewards.
 It allows the user to conveniently allocate rewards for multiple
-correct and partially correct answers for multichoice and numerical
-questions.The package also randomly shuffles the answer list for
-multichoice questions.
+correct and partially correct answers For multichoice questions, the
+package also randomly shuffles the answer list. For numerical questions,
+the package also allows the flexibility to specify different tolerance
+levels for each possible answer.
 
 For the package to function properly, it is necessary to set the
 question type for both multichoice and numerical questions to vertatim
