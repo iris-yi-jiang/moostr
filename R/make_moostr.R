@@ -10,8 +10,8 @@
 #'   For the package to function properly, it is necessary to set the
 #'   question type for both multichoice and numerical questions to vertatim
 #'   type.The returned Moodle syntax string can then be directly used as the
-#'   solution to a verbatim item in a Embedded Answers (Cloze) exercise
-#'   with exams package.
+#'   solution to a verbatim item in an Embedded Answers (Cloze) exercise
+#'   with exams package or Moodle.
 #'
 #' @param type string; either "mchoice" or "num"
 #' @param ans a list of possible answers; for "mchoice" type, each
