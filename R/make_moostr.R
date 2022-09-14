@@ -37,7 +37,7 @@ make_moostr <- function(type, ans, reward, tol = 0.01) {
         stop("at least one reward has to be 100")
     }
     if (!(type %in% c("mchoice", "num"))){
-        stop("type can only be MULTICHOICE or NUMERICAL")
+        stop("type can only be 'mchoice' or 'num'")
     }
     if (length(ans) != length(reward)){
         stop("lengh of ans and reward must match")

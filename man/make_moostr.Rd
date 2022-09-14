@@ -26,11 +26,15 @@ a Moodle syntax string
 This package generates a Moodle syntax string for
 a given list of possible answers and their corresponding rewards.
 It allows the user to conveniently allocate rewards for multiple
-correct and partially correct answers.The package also randomly
-shuffles the answer list for multichoice questions.
+correct and partially correct answers for multichoice and numerical
+questions.The package also randomly shuffles the answer list for
+multichoice questions.
 
-The returned Moodle syntax string can be directly used as the
-solution to a verbatim item in a cloze exercise with exams package.
+For the package to function properly, it is necessary to set the
+question type for both multichoice and numerical questions to vertatim
+type.The returned Moodle syntax string can then be directly used as the
+solution to a verbatim item in an Embedded Answers (Cloze) exercise
+with exams package or Moodle.
 }
 \examples{
 make_moostr(type="mchoice", ans=c("A two-sample t-test",
