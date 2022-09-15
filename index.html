@@ -105,7 +105,7 @@
 <span>                  <span class="st">"A paired t-test"</span>, </span>
 <span>                  <span class="st">"A one-sample t-test"</span><span class="op">)</span>, </span>
 <span>            reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] ":MULTICHOICE:%0%A one-sample t-test~%50%A two-sample t-test~%100%A paired t-test"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] ":MULTICHOICE:%100%A paired t-test~%50%A two-sample t-test~%0%A one-sample t-test"</span></span></code></pre></div>
 <p>This is a basic example for numerical question type. Note that <code>moostr</code> allows the flexibly to specify different tolerance levels for each possible answer. If the same tolerance level is preferred across all possible answers, only a single tolerance level is needed for the tol argument. The tol argument is by default set to 0.01, so if this is the preferred tolerance level, then it is not necessary to set it.</p>
 <p>The tol argument should be set carefully. If the difference between correct and partially correct answers are within the specified tolerance level, then the reward applied to the partially correct answer will be ignored and the reward for the correct answer will be used to evaluate both answers.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
