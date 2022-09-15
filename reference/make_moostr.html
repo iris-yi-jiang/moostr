@@ -100,8 +100,8 @@ of numeric type</p></dd>
 
 
 <dt>reward</dt>
-<dd><p>a list of corresponding rewards for the possible
-answers expressed in percentages (0 and 100 inclusive)</p></dd>
+<dd><p>a list of corresponding rewards for each possible
+answer expressed in percentages (0 and 100 inclusive)</p></dd>
 
 
 <dt>tol</dt>
@@ -118,9 +118,33 @@ ignored for "mchoice" type</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">make_moostr</span><span class="op">(</span>type<span class="op">=</span><span class="st">"mchoice"</span>, ans<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A two-sample t-test"</span>,</span></span>
-<span class="r-in"><span><span class="st">"A paired t-test"</span>, <span class="st">"A one-sample t-test"</span><span class="op">)</span>, reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ":MULTICHOICE:%50%A two-sample t-test~%100%A paired t-test~%0%A one-sample t-test"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#For multichoice type questions</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">make_moostr</span><span class="op">(</span>type<span class="op">=</span><span class="st">"mchoice"</span>,</span></span>
+<span class="r-in"><span>            ans<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A two-sample t-test"</span>,</span></span>
+<span class="r-in"><span>                  <span class="st">"A paired t-test"</span>,</span></span>
+<span class="r-in"><span>                  <span class="st">"A one-sample t-test"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ":MULTICHOICE:%0%A one-sample t-test~%50%A two-sample t-test~%100%A paired t-test"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#For numerical type questions</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">make_moostr</span><span class="op">(</span>type<span class="op">=</span><span class="st">"num"</span>,</span></span>
+<span class="r-in"><span>            ans<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2.1</span>, <span class="fl">2.01</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ":NUMERICAL:%30%2:0~%100%2.1:0.1~%50%2.01:0.01"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">make_moostr</span><span class="op">(</span>type<span class="op">=</span><span class="st">"num"</span>,</span></span>
+<span class="r-in"><span>            ans<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2.1</span>, <span class="fl">2.01</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            tol <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ":NUMERICAL:%50%2:0~%100%2.1:0~%50%2.01:0"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">make_moostr</span><span class="op">(</span>type<span class="op">=</span><span class="st">"num"</span>,</span></span>
+<span class="r-in"><span>            ans<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2.1</span>, <span class="fl">2.01</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            reward<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ":NUMERICAL:%30%2:0.01~%100%2.1:0.01~%50%2.01:0.01"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
