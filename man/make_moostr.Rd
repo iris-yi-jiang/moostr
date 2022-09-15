@@ -13,8 +13,8 @@ make_moostr(type, ans, reward, tol = 0.01)
 possible answer is a string; for "num" type, each possible answer is
 of numeric type}
 
-\item{reward}{a list of corresponding rewards for the possible
-answers expressed in percentages (0 and 100 inclusive)}
+\item{reward}{a list of corresponding rewards for each possible
+answer expressed in percentages (0 and 100 inclusive)}
 
 \item{tol}{a tolerance level for "num" type; this argument is
 ignored for "mchoice" type}
@@ -38,6 +38,27 @@ solution to a verbatim item in an Embedded Answers (Cloze) exercise
 with exams package or Moodle.
 }
 \examples{
-make_moostr(type="mchoice", ans=c("A two-sample t-test",
-"A paired t-test", "A one-sample t-test"), reward=c(50, 100, 0))
+#For multichoice type questions
+
+make_moostr(type="mchoice",
+            ans=c("A two-sample t-test",
+                  "A paired t-test",
+                  "A one-sample t-test"),
+            reward=c(50, 100, 0))
+
+#For numerical type questions
+
+make_moostr(type="num",
+            ans=c(2, 2.1, 2.01),
+            reward=c(30, 100, 50),
+            tol = c(0, 0.1, 0.01))
+
+make_moostr(type="num",
+            ans=c(2, 2.1, 2.01),
+            reward=c(50, 100, 50),
+            tol = 0)
+
+make_moostr(type="num",
+            ans=c(2, 2.1, 2.01),
+            reward=c(30, 100, 50))
 }

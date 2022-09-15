@@ -26,8 +26,29 @@
 #' @export
 #'
 #' @examples
-#' make_moostr(type="mchoice", ans=c("A two-sample t-test",
-#' "A paired t-test", "A one-sample t-test"), reward=c(50, 100, 0))
+#' #For multichoice type questions
+#'
+#' make_moostr(type="mchoice",
+#'             ans=c("A two-sample t-test",
+#'                   "A paired t-test",
+#'                   "A one-sample t-test"),
+#'             reward=c(50, 100, 0))
+#'
+#' #For numerical type questions
+#'
+#' make_moostr(type="num",
+#'             ans=c(2, 2.1, 2.01),
+#'             reward=c(30, 100, 50),
+#'             tol = c(0, 0.1, 0.01))
+#'
+#' make_moostr(type="num",
+#'             ans=c(2, 2.1, 2.01),
+#'             reward=c(50, 100, 50),
+#'             tol = 0)
+#'
+#' make_moostr(type="num",
+#'             ans=c(2, 2.1, 2.01),
+#'             reward=c(30, 100, 50))
 
 make_moostr <- function(type, ans, reward, tol = 0.01) {
     if (length(ans) <= 1){
