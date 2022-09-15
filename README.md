@@ -46,7 +46,7 @@ make_moostr(type="mchoice",
                   "A paired t-test", 
                   "A one-sample t-test"), 
             reward=c(50, 100, 0))
-#> [1] ":MULTICHOICE:%0%A one-sample t-test~%50%A two-sample t-test~%100%A paired t-test"
+#> [1] ":MULTICHOICE:%100%A paired t-test~%50%A two-sample t-test~%0%A one-sample t-test"
 ```
 
 This is a basic example for numerical question type. Note that `moostr`
