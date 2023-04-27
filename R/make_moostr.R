@@ -26,65 +26,80 @@
 #' @export
 #'
 #' @examples
-#' #For multichoice type questions
+#' # For multichoice type questions
 #'
-#' make_moostr(type="mchoice",
-#'             ans=c("A two-sample t-test",
-#'                   "A paired t-test",
-#'                   "A one-sample t-test"),
-#'             reward=c(50, 100, 0))
+#' make_moostr(
+#'   type = "mchoice",
+#'   ans = c(
+#'     "A two-sample t-test",
+#'     "A paired t-test",
+#'     "A one-sample t-test"
+#'   ),
+#'   reward = c(50, 100, 0)
+#' )
 #'
-#' #For numerical type questions
+#' # For numerical type questions
 #'
-#' make_moostr(type="num",
-#'             ans=c(2, 2.1, 2.01),
-#'             reward=c(30, 100, 50),
-#'             tol = c(0, 0.1, 0.01))
+#' make_moostr(
+#'   type = "num",
+#'   ans = c(2, 2.1, 2.01),
+#'   reward = c(30, 100, 50),
+#'   tol = c(0, 0.1, 0.01)
+#' )
 #'
-#' make_moostr(type="num",
-#'             ans=c(2, 2.1, 2.01),
-#'             reward=c(50, 100, 50),
-#'             tol = 0)
+#' make_moostr(
+#'   type = "num",
+#'   ans = c(2, 2.1, 2.01),
+#'   reward = c(50, 100, 50),
+#'   tol = 0
+#' )
 #'
-#' make_moostr(type="num",
-#'             ans=c(2, 2.1, 2.01),
-#'             reward=c(30, 100, 50))
-
+#' make_moostr(
+#'   type = "num",
+#'   ans = c(2, 2.1, 2.01),
+#'   reward = c(30, 100, 50)
+#' )
 make_moostr <- function(type, ans, reward, tol = 0.01) {
-    if (length(ans) <= 1){
-        stop(paste("make_moostr is meant for multiple answers",
-                   "so length(ans) should be greater than one"))
-    }
-    if (max(reward) != 100){
-        stop("at least one reward has to be 100")
-    }
-    if (!(type %in% c("mchoice", "num"))){
-        stop("type can only be 'mchoice' or 'num'")
-    }
-    if (length(ans) != length(reward)){
-        stop("lengh of ans and reward must match")
-    }
-    if (type == "mchoice"){
-        s <- make_moostr_multichoice(ans, reward)
-    } else {
-        s <- make_moostr_numerical(ans, reward, tol = tol)
-    }
-    return(s)
+  if (length(ans) <= 1) {
+    stop(paste(
+      "make_moostr is meant for multiple answers",
+      "so length(ans) should be greater than one"
+    ))
+  }
+  if (max(reward) != 100) {
+    stop("at least one reward has to be 100")
+  }
+  if (!(type %in% c("mchoice", "num"))) {
+    stop("type can only be 'mchoice' or 'num'")
+  }
+  if (length(ans) != length(reward)) {
+    stop("lengh of ans and reward must match")
+  }
+  if (type == "mchoice") {
+    s <- make_moostr_multichoice(ans, reward)
+  } else {
+    s <- make_moostr_numerical(ans, reward, tol = tol)
+  }
+  return(s)
 }
 
-make_moostr_multichoice <- function(ans, reward){
-    idx <- sample(seq_along(ans))
-    ans <- ans[idx]
-    reward <- reward[idx]
-    temp <- glue::glue("%{reward}%{ans}")
-    multi_reward <- glue::glue_collapse(temp, sep = "~", last= "")
-    s <- paste0(":MULTICHOICE:", multi_reward)
-    return(s)
+make_moostr_multichoice <- function(ans, reward, shuffle = TRUE) {
+  idx <- if (shuffle) {
+    sample(seq_along(ans))
+  } else {
+    seq_along(ans)
+  }
+  ans <- ans[idx]
+  reward <- reward[idx]
+  temp <- glue::glue("%{reward}%{ans}")
+  multi_reward <- glue::glue_collapse(temp, sep = "~", last = "")
+  s <- paste0(":MULTICHOICE:", multi_reward)
+  return(s)
 }
 
-make_moostr_numerical <- function(ans, reward, tol = 0.01){
-    temp <- glue::glue("%{reward}%{ans}:{tol}")
-    multi_reward <- glue::glue_collapse(temp, sep = "~", last= "")
-    s <- paste0(":NUMERICAL:", multi_reward)
-    return(s)
+make_moostr_numerical <- function(ans, reward, tol = 0.01) {
+  temp <- glue::glue("%{reward}%{ans}:{tol}")
+  multi_reward <- glue::glue_collapse(temp, sep = "~", last = "")
+  s <- paste0(":NUMERICAL:", multi_reward)
+  return(s)
 }
