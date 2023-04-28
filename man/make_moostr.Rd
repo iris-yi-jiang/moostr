@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_moostr.R
 \name{make_moostr}
 \alias{make_moostr}
-\title{Moodle Syntax String for Multichoice and Numerical Question Types}
+\title{Enhancing Exam Creation in Moodle with Customisable Rewards, Shuffling, and Tolerance Levels}
 \usage{
 make_moostr(type, ans, reward, tol = 0.01)
 }
@@ -26,39 +26,49 @@ a Moodle syntax string
 This package generates a Moodle syntax string for
 a given list of possible answers and their corresponding rewards.
 It allows the user to conveniently allocate rewards for multiple
-correct and partially correct answers For multichoice questions, the
-package also randomly shuffles the answer list. For numerical questions,
-the package also allows the flexibility to specify different tolerance
-levels for each possible answer.
+correct and partially correct answers It allows users extra flexibility
+to shuffle options in selected single/multiple choice questions. In addition,
+for numerical questions, it also allows users to specify different tolerance
+levels for each correct/partially correct answers.
 
 For the package to function properly, it is necessary to set the
-question type for both multichoice and numerical questions to vertatim
+question type for both multichoice and numerical questions to the vertatim
 type.The returned Moodle syntax string can then be directly used as the
 solution to a verbatim item in an Embedded Answers (Cloze) exercise
 with exams package or Moodle.
 }
 \examples{
-#For multichoice type questions
+# For multichoice type questions
 
-make_moostr(type="mchoice",
-            ans=c("A two-sample t-test",
-                  "A paired t-test",
-                  "A one-sample t-test"),
-            reward=c(50, 100, 0))
+make_moostr(
+  type = "mchoice",
+  ans = c(
+    "A two-sample t-test",
+    "A paired t-test",
+    "A one-sample t-test"
+  ),
+  reward = c(50, 100, 0)
+)
 
-#For numerical type questions
+# For numerical type questions
 
-make_moostr(type="num",
-            ans=c(2, 2.1, 2.01),
-            reward=c(30, 100, 50),
-            tol = c(0, 0.1, 0.01))
+make_moostr(
+  type = "num",
+  ans = c(2, 2.1, 2.01),
+  reward = c(30, 100, 50),
+  tol = c(0, 0.1, 0.01)
+)
 
-make_moostr(type="num",
-            ans=c(2, 2.1, 2.01),
-            reward=c(50, 100, 50),
-            tol = 0)
+make_moostr(
+  type = "num",
+  ans = c(2, 2.1, 2.01),
+  reward = c(50, 100, 50),
+  tol = 0
+)
 
-make_moostr(type="num",
-            ans=c(2, 2.1, 2.01),
-            reward=c(30, 100, 50))
+make_moostr(
+  type = "num",
+  ans = c(2, 2.1, 2.01),
+  reward = c(30, 100, 50)
+)
 }
