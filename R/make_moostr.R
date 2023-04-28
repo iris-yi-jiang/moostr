@@ -1,15 +1,15 @@
-#' Moodle Syntax String for Multichoice and Numerical Question Types
+#' Enhancing Exam Creation in Moodle with Customisable Rewards, Shuffling, and Tolerance Levels
 #'
 #' @description This package generates a Moodle syntax string for
 #'   a given list of possible answers and their corresponding rewards.
 #'   It allows the user to conveniently allocate rewards for multiple
-#'   correct and partially correct answers For multichoice questions, the
-#'   package also randomly shuffles the answer list. For numerical questions,
-#'   the package also allows the flexibility to specify different tolerance
-#'   levels for each possible answer.
+#'   correct and partially correct answers It allows users extra flexibility
+#'   to shuffle options in selected single/multiple choice questions. In addition,
+#'   for numerical questions, it also allows users to specify different tolerance
+#'   levels for each correct/partially correct answers.
 #'
 #'   For the package to function properly, it is necessary to set the
-#'   question type for both multichoice and numerical questions to vertatim
+#'   question type for both multichoice and numerical questions to the vertatim
 #'   type.The returned Moodle syntax string can then be directly used as the
 #'   solution to a verbatim item in an Embedded Answers (Cloze) exercise
 #'   with exams package or Moodle.
